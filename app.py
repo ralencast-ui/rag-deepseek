@@ -14,7 +14,7 @@ EJECUCION EN LOCAL (con Ollama)
 VERSION ONLINE (Streamlit Community Cloud)
   https://TU-APP.streamlit.app
   En la nube no existe Ollama, por eso alli DeepSeek-R1 se usa a traves de su API
-  (clave DEEPSEEK_API_KEY guardada en los Secrets de Streamlit Cloud).
+  (modelo deepseek-v4-flash, sucesor de deepseek-reasoner; clave DEEPSEEK_API_KEY en los Secrets de Streamlit Cloud).
 """
 
 # 1. Import Libraries
@@ -67,7 +67,7 @@ if uploaded_file:
     if api_key:
         from langchain_openai import ChatOpenAI  # la API de DeepSeek es compatible con OpenAI
         llm = ChatOpenAI(
-            model="deepseek-reasoner",  # deepseek-reasoner = DeepSeek-R1
+            model="deepseek-v4-flash",  # sucesor de deepseek-reasoner (R1), razonamiento activado por defecto
             api_key=api_key,
             base_url="https://api.deepseek.com",
         )
