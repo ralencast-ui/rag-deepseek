@@ -13,8 +13,8 @@ EJECUCION EN LOCAL (con Ollama)
 
 VERSION ONLINE (Streamlit Community Cloud)
   https://TU-APP.streamlit.app
-  En la nube no existe Ollama, por eso alli DeepSeek-R1 se usa a traves de su API
-  (modelo deepseek-v4-flash, sucesor de deepseek-reasoner; clave DEEPSEEK_API_KEY en los Secrets de Streamlit Cloud).
+  En la nube no existe Ollama, por eso alli el modelo de DeepSeek se usa gratis a traves
+  de OpenRouter (clave OPENROUTER_API_KEY guardada en los Secrets de Streamlit Cloud).
 """
 
 # 1. Import Libraries
@@ -57,19 +57,20 @@ if uploaded_file:
     st.success("¡PDF procesado e índice FAISS creado con éxito!")
 
     # 5. Configure DeepSeek R1
-    # AÑADIDO para Streamlit Cloud: si existe la clave de la API se usa DeepSeek-R1 en la nube;
-    # si no (ordenador local), se usa Ollama exactamente como en el articulo.
+    # AÑADIDO para Streamlit Cloud: si existe la clave de OpenRouter se usa un modelo de DeepSeek
+    # gratuito en la nube; si no (ordenador local), se usa Ollama exactamente como en el articulo.
     try:
-        api_key = st.secrets["DEEPSEEK_API_KEY"]
+        api_key = st.secrets["OPENROUTER_API_KEY"]
+        model = st.secrets.get("OPENROUTER_MODEL", "deepseek/deepseek-v4-flash:free")
     except Exception:
         api_key = None
 
     if api_key:
-        from langchain_openai import ChatOpenAI  # la API de DeepSeek es compatible con OpenAI
+        from langchain_openai import ChatOpenAI  # la API de OpenRouter es compatible con OpenAI
         llm = ChatOpenAI(
-            model="deepseek-v4-flash",  # sucesor de deepseek-reasoner (R1), razonamiento activado por defecto
+            model=model,
             api_key=api_key,
-            base_url="https://api.deepseek.com",
+            base_url="https://openrouter.ai/api/v1",
         )
     else:
         llm = Ollama(model="deepseek-r1:1.5b")  # Our 1.5B parameter model

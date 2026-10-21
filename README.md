@@ -13,7 +13,7 @@ PDF → PDFPlumber → SemanticChunker → embeddings Hugging Face → FAISS (to
 | Dónde se ejecuta | Modelo |
 |---|---|
 | Ordenador local | `deepseek-r1:1.5b` con Ollama |
-| Streamlit Cloud | `deepseek-v4-flash` (API de DeepSeek) |
+| Streamlit Cloud | `deepseek/deepseek-v4-flash:free` (gratis vía OpenRouter) |
 
 ## Ejecutar en local
 
