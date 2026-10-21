@@ -12,9 +12,10 @@ EJECUCION EN LOCAL (con Ollama)
        py -m streamlit run app.py
 
 VERSION ONLINE (Streamlit Community Cloud)
-  https://TU-APP.streamlit.app
-  En la nube no existe Ollama, por eso alli el modelo de DeepSeek se usa gratis a traves
-  de OpenRouter (clave OPENROUTER_API_KEY guardada en los Secrets de Streamlit Cloud).
+  https://rag-deepseek-rafa.streamlit.app
+  En la nube no existe Ollama, por eso alli se usa un modelo gratuito a traves de
+  OpenRouter (clave OPENROUTER_API_KEY guardada en los Secrets de Streamlit Cloud).
+  La version local sigue el articulo: Ollama con deepseek-r1:1.5b.
 """
 
 # 1. Import Libraries
@@ -57,8 +58,8 @@ if uploaded_file:
     st.success("¡PDF procesado e índice FAISS creado con éxito!")
 
     # 5. Configure DeepSeek R1
-    # AÑADIDO para Streamlit Cloud: si existe la clave de OpenRouter se usa un modelo de DeepSeek
-    # gratuito en la nube; si no (ordenador local), se usa Ollama exactamente como en el articulo.
+    # AÑADIDO para Streamlit Cloud: si existe la clave de OpenRouter se usa un modelo gratuito
+    # en la nube; si no (ordenador local), se usa Ollama exactamente como en el articulo.
     try:
         api_key = st.secrets["OPENROUTER_API_KEY"]
         model = st.secrets.get("OPENROUTER_MODEL", "deepseek/deepseek-v4-flash:free")

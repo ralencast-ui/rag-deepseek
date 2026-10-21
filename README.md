@@ -4,7 +4,7 @@ Chat que responde preguntas sobre un PDF mediante Retrieval-Augmented Generation
 Tarea individual de **IA Aplicada (ESIC)**, basada en el artículo de Annie Wellington
 *Developing RAG Systems with DeepSeek R1 & Ollama*.
 
-**Demo online:** https://TU-APP.streamlit.app
+**Demo online:** https://rag-deepseek-rafa.streamlit.app
 
 ## Cómo funciona
 
@@ -13,7 +13,7 @@ PDF → PDFPlumber → SemanticChunker → embeddings Hugging Face → FAISS (to
 | Dónde se ejecuta | Modelo |
 |---|---|
 | Ordenador local | `deepseek-r1:1.5b` con Ollama |
-| Streamlit Cloud | `deepseek/deepseek-v4-flash:free` (gratis vía OpenRouter) |
+| Streamlit Cloud | `openrouter/free`: modelo gratuito elegido automáticamente por OpenRouter |
 
 ## Ejecutar en local
 
