@@ -62,7 +62,7 @@ if uploaded_file:
     # en la nube; si no (ordenador local), se usa Ollama exactamente como en el articulo.
     try:
         api_key = st.secrets["OPENROUTER_API_KEY"]
-        model = st.secrets.get("OPENROUTER_MODEL", "deepseek/deepseek-v4-flash:free")
+        model = st.secrets.get("OPENROUTER_MODEL", "openrouter/free")
     except Exception:
         api_key = None
 
