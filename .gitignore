@@ -1,0 +1,11 @@
+# Clave de la API: NUNCA subir a GitHub
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# PDF temporal que genera la app
+temp.pdf

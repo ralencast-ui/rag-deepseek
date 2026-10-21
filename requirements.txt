@@ -1,0 +1,14 @@
+# PyTorch solo CPU (más ligero, necesario para Streamlit Cloud)
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+torchvision
+
+streamlit
+langchain
+langchain-community
+langchain-experimental
+langchain-huggingface
+langchain-openai
+pdfplumber
+faiss-cpu
+sentence-transformers
